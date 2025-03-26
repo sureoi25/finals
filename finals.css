@@ -1,0 +1,45 @@
+:root{
+    --background-primary: #E9D59C;
+    --background-secondary: #64B8B1;
+    --text-primary: #FFFFFF;
+    --accent-color: #22BED9;
+    --nav-background: #000000;
+    --card-shadow: rgba(0, 0, 0, 0.2);
+    --hover-shadow: rgba(0, 0, 0, 0.3);
+    --accent-shadow: rgba(30, 215, 96, 0.8);
+}
+body {
+    font-family: 'Circular', sans-serif;
+    background: var(--background-primary);
+    color: var(--text-primary);
+    overflow-x: hidden;
+}
+.intro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, var(--accent-color), var(--background-primary));
+}
+.intro_title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Helvetica;
+
+}
+.me_img {
+    margin-top: 100px;
+    width: 100%;
+    height: 25rem;
+
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 20px;
+    padding: 3px;
+    background-color: var(--background-primary);
+}
+
+.me_img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px var(--hover-shadow);
+}
