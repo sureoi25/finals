@@ -1,186 +1,245 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Discover Palawan - Philippines' Last Frontier</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Palawan Travel Guide</title>
         <link rel="stylesheet" href="finals.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     </head>
     <body>
         <nav class="main-nav">
-            <ul>
-                <li><a href="#intro">Home</a></li>
-                <li><a href="#things">Destinations</a></li>
-                <li><a href="#activities">Activities</a></li>
-                <li><a href="#tips">Travel Tips</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+            <div class="nav-container">
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span class="hamburger"></span>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="#intro">Home</a></li>
+                    <li><a href="#destinations">Destinations</a></li>
+                    <li><a href="#activities">Activities</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li class="theme-toggle">
+                        <button id="theme-toggle" aria-label="Toggle dark mode">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
         </nav>
         
         <main>
-            <section class="intro" id="intro">
-                <div class="content_wrapper">
-                    <div class="intro_content">
-                        <img src="pics\palawan map.jpg" alt="Palawan Map" class="me_img">
-                        <h1 class="intro_title">Palawan</h1>
-                        <p class="intro_subtitle">The Philippines' Last Frontier</p>
-                        <div class="intro_text">
-                            <p>Experience the breathtaking beauty of Palawan, voted as the World's Best Island multiple times. With pristine beaches, crystal-clear waters, and stunning limestone formations, Palawan offers unforgettable adventures for every traveler.</p>
-                        </div>
-                        <div class="cta_buttons">
-                            <a href="#things" class="cta_button primary">Explore Attractions</a>
-                            <a href="#activities" class="cta_button secondary">Discover Activities</a>
-                        </div>
+            <section class="intro" id="home">
+                <div class="background-carousel">
+                    <div class="carousel-slide">
+                        <img src="pics/background/kayangan lake coron palawan.jpg" alt="Kayangan Lake">
                     </div>
+                    <div class="carousel-slide">
+                        <img src="pics/background/big lagoon palawan.jpg" alt="Big Lagoon">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="pics/background/underground river palawan.jpg" alt="Underground River">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="pics/background/twin lagoon palawan.jpg" alt="Twin Lagoon">
+                    </div>
+                    <button class="carousel-prev" aria-label="Previous slide">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-next" aria-label="Next slide">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="carousel-dots"></div>
                 </div>
-            </section>
-
-            <section class="things" id="things">
-                <div class="content_wrapper">
-                    <h2 class="section_title">Must-Visit Destinations</h2>
-                    <div class="recos">
-                        <img src="pics\el nido.jpeg" alt="El Nido - Famous for its stunning limestone formations and crystal-clear lagoons" class="recos_img">
-                        <img src="pics\underground river inside.jpg" alt="Puerto Princesa Underground River - One of the New 7 Wonders of Nature" class="recos_img">
-                    </div>
-                    <div class="destination_info">
-                        <div class="info_card">
-                            <h3>El Nido</h3>
-                            <p>Discover the stunning limestone cliffs, hidden lagoons, and pristine beaches of El Nido. Island hopping tours will take you to breathtaking spots like the Big and Small Lagoons, Secret Beach, and Seven Commandos Beach.</p>
-                            <div class="card_meta">
-                                <span><i class="fas fa-map-marker-alt"></i> Northern Palawan</span>
-                                <span><i class="fas fa-star"></i> 4.8/5</span>
+                <div class="intro_content">
+                    <h1 class="intro_title">Discover the Paradise of Palawan</h1>
+                    <h2 class="intro_subtitle">Experience the beauty of the Philippines' last frontier</h2>
+                    <p class="intro_text">From crystal clear waters to hidden lagoons, Palawan offers an unforgettable adventure for every traveler.</p>
+                    <div class="top_destinations">
+                        <h3>Top Destinations</h3>
+                        <div class="destination_highlights">
+                            <div class="destination_highlight">
+                                <img src="pics/destinations/big lagoon palawan.jpg" alt="Big Lagoon">
+                                <span>Big Lagoon</span>
+                            </div>
+                            <div class="destination_highlight">
+                                <img src="pics/destinations/underground river inside.jpg" alt="Underground River">
+                                <span>Underground River</span>
+                            </div>
+                            <div class="destination_highlight">
+                                <img src="pics/destinations/twin lagoon palawan 2.jpg" alt="Twin Lagoon">
+                                <span>Twin Lagoon</span>
                             </div>
                         </div>
-                        <div class="info_card">
-                            <h3>Puerto Princesa Underground River</h3>
-                            <p>Explore one of the New 7 Wonders of Nature. This 8.2 km underground river flows directly into the sea, and visitors can take a boat tour through its impressive cave system with stunning stalactites and stalagmites.</p>
-                            <div class="card_meta">
-                                <span><i class="fas fa-map-marker-alt"></i> Puerto Princesa</span>
-                                <span><i class="fas fa-star"></i> 4.7/5</span>
+                    </div>
+                    <div class="cta_buttons">
+                        <a href="#destinations" class="cta_button primary">Explore Destinations</a>
+                        <a href="#contact" class="cta_button secondary">Contact Us</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="destinations" id="destinations">
+                <div class="content_wrapper">
+                    <h2 class="section_title">Popular Destinations</h2>
+                    <div class="carousel">
+                        <div class="carousel-container">
+                            <div class="carousel-slide">
+                                <img src="pics/destinations/banana island palawan.jpg" alt="Banana Island">
+                                <div class="carousel-caption">
+                                    <h3>Banana Island</h3>
+                                    <p>A secluded paradise with pristine beaches and crystal clear waters, perfect for snorkeling and relaxation.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="pics/destinations/barracuda lake palawan2.jpg" alt="Barracuda Lake">
+                                <div class="carousel-caption">
+                                    <h3>Barracuda Lake</h3>
+                                    <p>This unique lake in Coron features varying water temperatures and is a popular spot for diving enthusiasts.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="pics/destinations/honda bay palawan.jpg" alt="Honda Bay">
+                                <div class="carousel-caption">
+                                    <h3>Honda Bay</h3>
+                                    <p>A perfect destination for island hopping, featuring beautiful islands and rich marine life.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="pics/destinations/sabang beach palawan.jpg" alt="Sabang Beach">
+                                <div class="carousel-caption">
+                                    <h3>Sabang Beach</h3>
+                                    <p>Known for its proximity to the Puerto Princesa Underground River, this beach offers stunning views and relaxation.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="pics/destinations/twin lagoon palawan 2.jpg" alt="Twin Lagoon">
+                                <div class="carousel-caption">
+                                    <h3>Twin Lagoon</h3>
+                                    <p>Two stunning lagoons separated by a limestone wall, accessible by swimming through a small opening during low tide.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="pics/destinations/twin lagoon palawan 3.jpg" alt="Twin Lagoon View">
+                                <div class="carousel-caption">
+                                    <h3>Twin Lagoon View</h3>
+                                    <p>Breathtaking views of the Twin Lagoon's crystal clear waters and towering limestone cliffs.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="pics/destinations/underground river inside.jpg" alt="Underground River">
+                                <div class="carousel-caption">
+                                    <h3>Underground River</h3>
+                                    <p>A UNESCO World Heritage site, this 8.2 km navigable underground river features stunning limestone formations.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="pics/destinations/big lagoon palawan.jpg" alt="Big Lagoon">
+                                <div class="carousel-caption">
+                                    <h3>Big Lagoon</h3>
+                                    <p>A natural wonder in El Nido, the Big Lagoon features towering limestone cliffs and emerald waters perfect for kayaking.</p>
+                                </div>
                             </div>
                         </div>
+                        <button class="carousel-button prev" aria-label="Previous slide">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-button next" aria-label="Next slide">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <div class="carousel-dots"></div>
                     </div>
                 </div>
             </section>
 
-            <section class="activities" id="activities">
+            <section id="activities" class="activities">
                 <div class="content_wrapper">
-                    <h2 class="section_title">Exciting Activities</h2>
-                    <div class="activities_grid">
-                        <div class="activity_card">
-                            <div class="activity_icon"><i class="fas fa-water"></i></div>
-                            <h3>Island Hopping</h3>
-                            <p>Explore the hidden beaches, lagoons, and snorkeling spots around El Nido and Coron.</p>
+                    <h2 class="section_title">Popular Activities</h2>
+                    <div class="activities-carousel">
+                        <div class="carousel-container">
+                            <div class="carousel-slide">
+                                <img src="pics/activities/island hopping palawan.jpg" alt="Island Hopping">
+                                <div class="carousel-caption">
+                                    <h3>Island Hopping</h3>
+                                    <p>Explore the beautiful islands of Palawan</p>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="pics/activities/underground river tour palawan.jpg" alt="Underground River Tour">
+                                <div class="carousel-caption">
+                                    <h3>Underground River Tour</h3>
+                                    <p>Discover the wonders of the Puerto Princesa Underground River</p>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="pics/activities/beach banana island palawna.jpg" alt="Beach Relaxation">
+                                <div class="carousel-caption">
+                                    <h3>Beach Relaxation</h3>
+                                    <p>Unwind on the pristine beaches of Banana Island</p>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="pics/activities/barracuda lake diving or snorkeling.jpg" alt="Snorkeling">
+                                <div class="carousel-caption">
+                                    <h3>Snorkeling</h3>
+                                    <p>Explore the underwater beauty of Barracuda Lake</p>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="pics/activities/honda bay island hopping.jpg" alt="Island Hopping">
+                                <div class="carousel-caption">
+                                    <h3>Island Hopping</h3>
+                                    <p>Discover the islands of Honda Bay</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="activity_card">
-                            <div class="activity_icon"><i class="fas fa-fish"></i></div>
-                            <h3>Diving</h3>
-                            <p>Discover colorful coral reefs and diverse marine life in Palawan's crystal-clear waters.</p>
-                        </div>
-                        <div class="activity_card">
-                            <div class="activity_icon"><i class="fas fa-hiking"></i></div>
-                            <h3>Trekking</h3>
-                            <p>Hike to Mt. Tapyas in Coron or explore the jungles around the Ugong Rock formation.</p>
-                        </div>
-                        <div class="activity_card">
-                            <div class="activity_icon"><i class="fas fa-utensils"></i></div>
-                            <h3>Food Tour</h3>
-                            <p>Sample local Filipino cuisine and fresh seafood at beachside restaurants.</p>
-                        </div>
+                        <button class="carousel-button prev" aria-label="Previous slide">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-button next" aria-label="Next slide">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <div class="carousel-dots"></div>
                     </div>
                 </div>
             </section>
 
-            <section class="travel_tips" id="tips">
+            <section id="contact" class="contact">
                 <div class="content_wrapper">
-                    <h2 class="section_title">Travel Tips</h2>
-                    <div class="tips_container">
-                        <div class="tip">
-                            <h3><i class="fas fa-calendar-alt"></i> Best Time to Visit</h3>
-                            <p>November to May offers the best weather, with December to February being the peak season. Avoid the rainy months from June to October.</p>
-                        </div>
-                        <div class="tip">
-                            <h3><i class="fas fa-plane"></i> Getting There</h3>
-                            <p>Fly to Puerto Princesa, El Nido, or Coron from Manila. Puerto Princesa has the most flight options. From there, take vans or buses to other destinations.</p>
-                        </div>
-                        <div class="tip">
-                            <h3><i class="fas fa-bed"></i> Accommodation</h3>
-                            <p>From luxury resorts to budget hostels, Palawan offers accommodations for every budget. Book in advance during peak season.</p>
-                        </div>
-                        <div class="tip">
-                            <h3><i class="fas fa-wallet"></i> Budget</h3>
-                            <p>Daily budget: $30-50 for budget travelers, $100-200 for mid-range, and $250+ for luxury experiences.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="contact" id="contact">
-                <div class="content_wrapper">
-                    <h2 class="section_title">Plan Your Trip</h2>
+                    <h2 class="section_title">Contact Us</h2>
                     <div class="contact_container">
                         <div class="contact_info">
                             <h3>Have Questions?</h3>
-                            <p>Fill out the form and our travel experts will get back to you within 24 hours.</p>
+                            <p>Feel free to reach out to us for more information about Palawan destinations and activities. We're here to help plan your perfect trip!</p>
                             <div class="social_links">
-                                <a href="#" class="social_link"><i class="fab fa-facebook"></i></a>
-                                <a href="#" class="social_link"><i class="fab fa-instagram"></i></a>
-                                <a href="#" class="social_link"><i class="fab fa-twitter"></i></a>
-                                <a href="#" class="social_link"><i class="fab fa-youtube"></i></a>
+                                <a href="https://www.facebook.com/profile.php?id=100094012902794" class="social_link" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://www.instagram.com/judd.nallos.tagalog/" class="social_link" target="_blank"><i class="fab fa-instagram"></i></a>
                             </div>
                         </div>
-                        <form class="contact_form">
-                            <div class="form_group">
-                                <label for="name">Your Name</label>
-                                <input type="text" id="name" name="name" placeholder="Enter your name">
-                            </div>
-                            <div class="form_group">
-                                <label for="email">Email Address</label>
-                                <input type="email" id="email" name="email" placeholder="Enter your email">
-                            </div>
-                            <div class="form_group">
-                                <label for="message">Message</label>
-                                <textarea id="message" name="message" rows="4" placeholder="How can we help you?"></textarea>
-                            </div>
-                            <button type="submit" class="form_submit">Send Message</button>
-                        </form>
+                        <div class="contact_form">
+                            <form action="mailto:judd.nallos.tagalog@gmail.com" method="post" enctype="text/plain">
+                                <div class="form_group">
+                                    <label for="name">Name</label>
+                                    <input type="text" id="name" name="name" required>
+                                </div>
+                                <div class="form_group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="form_group">
+                                    <label for="subject">Subject</label>
+                                    <input type="text" id="subject" name="subject" required>
+                                </div>
+                                <div class="form_group">
+                                    <label for="message">Message</label>
+                                    <textarea id="message" name="message" rows="5" required></textarea>
+                                </div>
+                                <button type="submit" class="form_submit">Send Message</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </section>
         </main>
-
-        <footer class="footer">
-            <div class="content_wrapper">
-                <div class="footer_content">
-                    <div class="footer_logo">
-                        <h2>Palawan</h2>
-                        <p>The Philippines' Last Frontier</p>
-                    </div>
-                    <div class="footer_links">
-                        <h3>Quick Links</h3>
-                        <ul>
-                            <li><a href="#intro">Home</a></li>
-                            <li><a href="#things">Destinations</a></li>
-                            <li><a href="#activities">Activities</a></li>
-                            <li><a href="#tips">Travel Tips</a></li>
-                            <li><a href="#contact">Contact</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer_newsletter">
-                        <h3>Stay Updated</h3>
-                        <p>Subscribe to our newsletter for travel tips and special offers.</p>
-                        <div class="newsletter_form">
-                            <input type="email" placeholder="Your email address">
-                            <button type="submit">Subscribe</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer_bottom">
-                    <p>© 2025 Palawan Tourism. All rights reserved.</p>
-                </div>
-            </div>
-        </footer>
 
         <script src="finals.js"></script>
     </body>
