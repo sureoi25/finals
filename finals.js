@@ -104,82 +104,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Search functionality
-    const searchInput = document.getElementById('destination-search');
-    const searchButton = document.querySelector('.search-button');
-    const destinationSlides = document.querySelectorAll('.carousel-slide');
-    const destinationsSection = document.getElementById('destinations');
-    const destinationsCarousel = document.querySelector('#destinations .carousel');
-    const destinationsContainer = document.querySelector('#destinations .carousel-container');
-
-    function searchDestinations() {
-        const searchTerm = searchInput.value.toLowerCase();
-        let found = false;
-        let matchingSlideIndex = -1;
-
-        // First check if we need to scroll to the destinations section
-        if (searchTerm.length > 0) {
-            // Scroll to destinations section
-            destinationsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-
-        // Find matching slides and highlight them
-        destinationSlides.forEach((slide, index) => {
-            const title = slide.querySelector('h3').textContent.toLowerCase();
-            const description = slide.querySelector('p').textContent.toLowerCase();
-            
-            if (title.includes(searchTerm) || description.includes(searchTerm)) {
-                slide.style.display = 'block';
-                found = true;
-                
-                // If this is the first match, store its index
-                if (matchingSlideIndex === -1) {
-                    matchingSlideIndex = index;
-                }
-            } else {
-                slide.style.display = 'none';
-            }
-        });
-
-        // If we found a match, move the carousel to that slide
-        if (matchingSlideIndex !== -1 && destinationsContainer) {
-            // Move to the matching slide
-            destinationsContainer.style.transform = `translateX(-${matchingSlideIndex * 100}%)`;
-            
-            // Update the dots
-            const dots = document.querySelectorAll('#destinations .dot');
-            dots.forEach((dot, index) => {
-                if (index === matchingSlideIndex) {
-                    dot.classList.add('active');
-                } else {
-                    dot.classList.remove('active');
-                }
-            });
-        }
-
-        // Show/hide no results message
-        const noResults = document.querySelector('.no-results') || document.createElement('div');
-        if (!found && searchTerm !== '') {
-            noResults.className = 'no-results';
-            noResults.textContent = 'No destinations found matching your search.';
-            destinationsCarousel.appendChild(noResults);
-        } else {
-            const existingNoResults = document.querySelector('.no-results');
-            if (existingNoResults) {
-                existingNoResults.remove();
-            }
-        }
-    }
-
-    if (searchInput && searchButton) {
-        searchButton.addEventListener('click', searchDestinations);
-        searchInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                searchDestinations();
-            }
-        });
-    }
-
     // Regular carousels functionality
     const carousels = document.querySelectorAll('.carousel, .activities-carousel');
     carousels.forEach(carousel => {
@@ -264,19 +188,5 @@ document.addEventListener('DOMContentLoaded', function() {
             mainNav.classList.remove('active');
             mobileMenuToggle.classList.remove('active');
         }
-    });
-
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
     });
 });
