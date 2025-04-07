@@ -13,13 +13,19 @@
                 <button class="mobile-menu-toggle" aria-label="Toggle menu">
                     <span class="hamburger"></span>
                 </button>
+                <div class="search-container">
+                    <input type="text" id="destination-search" placeholder="Search destinations...">
+                    <button class="search-button" aria-label="Search">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
                 <ul class="nav-links">
                     <li><a href="#intro">Home</a></li>
                     <li><a href="#destinations">Destinations</a></li>
                     <li><a href="#activities">Activities</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <li class="theme-toggle">
-                        <button id="theme-toggle" aria-label="Toggle dark mode">
+                        <button aria-label="Toggle dark mode">
                             <i class="fas fa-moon"></i>
                         </button>
                     </li>
@@ -29,27 +35,6 @@
         
         <main>
             <section class="intro" id="home">
-                <div class="background-carousel">
-                    <div class="carousel-slide">
-                        <img src="pics/background/kayangan lake coron palawan.jpg" alt="Kayangan Lake">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="pics/background/big lagoon palawan.jpg" alt="Big Lagoon">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="pics/background/underground river palawan.jpg" alt="Underground River">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="pics/background/twin lagoon palawan.jpg" alt="Twin Lagoon">
-                    </div>
-                    <button class="carousel-prev" aria-label="Previous slide">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="carousel-next" aria-label="Next slide">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                    <div class="carousel-dots"></div>
-                </div>
                 <div class="intro_content">
                     <h1 class="intro_title">Discover the Paradise of Palawan</h1>
                     <h2 class="intro_subtitle">Experience the beauty of the Philippines' last frontier</h2>
@@ -69,11 +54,14 @@
                                 <img src="pics/destinations/twin lagoon palawan 2.jpg" alt="Twin Lagoon">
                                 <span>Twin Lagoon</span>
                             </div>
+                            <div class="destination_highlight">
+                                <img src="pics/destinations/el nido palawan.jpg" alt="El Nido">
+                                <span>El Nido</span>
+                            </div>
                         </div>
                     </div>
                     <div class="cta_buttons">
-                        <a href="#destinations" class="cta_button primary">Explore Destinations</a>
-                        <a href="#contact" class="cta_button secondary">Contact Us</a>
+                        <a href="#destinations" class="cta_button primary">Plan Your Trip</a>
                     </div>
                 </div>
             </section>
@@ -139,6 +127,20 @@
                                     <p>A natural wonder in El Nido, the Big Lagoon features towering limestone cliffs and emerald waters perfect for kayaking.</p>
                                 </div>
                             </div>
+                            <div class="carousel-slide">
+                                <img src="pics/destinations/el nido palawan.jpg" alt="El Nido">
+                                <div class="carousel-caption">
+                                    <h3>El Nido</h3>
+                                    <p>Known for its stunning limestone cliffs, hidden lagoons, and pristine beaches, El Nido is a paradise for nature lovers and adventure seekers.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="pics/destinations/kayangan lake 2.jpg" alt="Kayangan Lake">
+                                <div class="carousel-caption">
+                                    <h3>Kayangan Lake</h3>
+                                    <p>Known as the cleanest lake in Asia, Kayangan Lake in Coron features crystal clear waters surrounded by limestone cliffs, offering a perfect spot for swimming and photography.</p>
+                                </div>
+                            </div>
                         </div>
                         <button class="carousel-button prev" aria-label="Previous slide">
                             <i class="fas fa-chevron-left"></i>
@@ -182,13 +184,6 @@
                                 <div class="carousel-caption">
                                     <h3>Snorkeling</h3>
                                     <p>Explore the underwater beauty of Barracuda Lake</p>
-                                </div>
-                            </div>
-                            <div class="carousel-slide">
-                                <img src="pics/activities/honda bay island hopping.jpg" alt="Island Hopping">
-                                <div class="carousel-caption">
-                                    <h3>Island Hopping</h3>
-                                    <p>Discover the islands of Honda Bay</p>
                                 </div>
                             </div>
                         </div>
@@ -240,6 +235,12 @@
                 </div>
             </section>
         </main>
+
+        <footer class="site-footer">
+            <div class="footer-content">
+                <p>© 2025 Judd Tagalog Gang shoutout mom and dad</p>
+            </div>
+        </footer>
 
         <script src="finals.js"></script>
     </body>

@@ -75,83 +75,109 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Background carousel functionality
-    const backgroundCarousel = document.querySelector('.background-carousel');
-    if (backgroundCarousel) {
-        const slides = backgroundCarousel.querySelectorAll('.carousel-slide');
-        const dotsContainer = backgroundCarousel.querySelector('.carousel-dots');
-        let currentSlide = 0;
-        
-        // Create dots for background carousel
-        slides.forEach((_, index) => {
-            const dot = document.createElement('div');
-            dot.classList.add('carousel-dot');
-            if (index === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => moveToSlide(index));
-            dotsContainer.appendChild(dot);
-        });
-        
-        const dots = dotsContainer.querySelectorAll('.carousel-dot');
+    // Theme toggle functionality
+    const themeToggle = document.querySelector('.theme-toggle button');
+    const body = document.body;
 
-        function moveToSlide(index) {
-            // Fade out current slide
-            slides[currentSlide].style.opacity = '0';
-            dots[currentSlide].classList.remove('active');
-            
-            // Update current slide index
-            currentSlide = index;
-            
-            // Fade in new slide
-            slides[currentSlide].style.opacity = '1';
-            dots[currentSlide].classList.add('active');
-            
-            // Update gradient colors based on current slide
-            updateGradientColors();
-        }
-        
-        function updateGradientColors() {
-            // Define gradient colors for each slide
-            const gradientColors = [
-                { start: 'rgba(100, 184, 177, 0.7)', end: 'rgba(34, 190, 217, 0.7)' },
-                { start: 'rgba(34, 190, 217, 0.7)', end: 'rgba(233, 213, 156, 0.7)' },
-                { start: 'rgba(233, 213, 156, 0.7)', end: 'rgba(100, 184, 177, 0.7)' },
-                { start: 'rgba(100, 184, 177, 0.7)', end: 'rgba(34, 190, 217, 0.7)' }
-            ];
-            
-            // Apply the gradient for the current slide
-            const intro = document.querySelector('.intro');
-            if (intro) {
-                intro.style.setProperty('--gradient-start', gradientColors[currentSlide].start);
-                intro.style.setProperty('--gradient-end', gradientColors[currentSlide].end);
+    if (themeToggle) {
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            body.classList.add('dark-theme');
+            const icon = themeToggle.querySelector('i');
+            if (icon) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
             }
         }
 
-        // Auto advance slides
-        setInterval(() => {
-            const nextSlide = (currentSlide + 1) % slides.length;
-            moveToSlide(nextSlide);
-        }, 5000);
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+            const icon = themeToggle.querySelector('i');
+            if (icon) {
+                icon.classList.toggle('fa-sun');
+                icon.classList.toggle('fa-moon');
+            }
+            
+            // Save theme preference
+            localStorage.setItem('theme', body.classList.contains('dark-theme') ? 'dark' : 'light');
+        });
+    }
 
-        // Add click events to navigation buttons
-        const prevButton = backgroundCarousel.querySelector('.carousel-prev');
-        const nextButton = backgroundCarousel.querySelector('.carousel-next');
+    // Search functionality
+    const searchInput = document.getElementById('destination-search');
+    const searchButton = document.querySelector('.search-button');
+    const destinationSlides = document.querySelectorAll('.carousel-slide');
+    const destinationsSection = document.getElementById('destinations');
+    const destinationsCarousel = document.querySelector('#destinations .carousel');
+    const destinationsContainer = document.querySelector('#destinations .carousel-container');
 
-        if (prevButton) {
-            prevButton.addEventListener('click', () => {
-                const prevSlide = (currentSlide - 1 + slides.length) % slides.length;
-                moveToSlide(prevSlide);
+    function searchDestinations() {
+        const searchTerm = searchInput.value.toLowerCase();
+        let found = false;
+        let matchingSlideIndex = -1;
+
+        // First check if we need to scroll to the destinations section
+        if (searchTerm.length > 0) {
+            // Scroll to destinations section
+            destinationsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Find matching slides and highlight them
+        destinationSlides.forEach((slide, index) => {
+            const title = slide.querySelector('h3').textContent.toLowerCase();
+            const description = slide.querySelector('p').textContent.toLowerCase();
+            
+            if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                slide.style.display = 'block';
+                found = true;
+                
+                // If this is the first match, store its index
+                if (matchingSlideIndex === -1) {
+                    matchingSlideIndex = index;
+                }
+            } else {
+                slide.style.display = 'none';
+            }
+        });
+
+        // If we found a match, move the carousel to that slide
+        if (matchingSlideIndex !== -1 && destinationsContainer) {
+            // Move to the matching slide
+            destinationsContainer.style.transform = `translateX(-${matchingSlideIndex * 100}%)`;
+            
+            // Update the dots
+            const dots = document.querySelectorAll('#destinations .dot');
+            dots.forEach((dot, index) => {
+                if (index === matchingSlideIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
             });
         }
 
-        if (nextButton) {
-            nextButton.addEventListener('click', () => {
-                const nextSlide = (currentSlide + 1) % slides.length;
-                moveToSlide(nextSlide);
-            });
+        // Show/hide no results message
+        const noResults = document.querySelector('.no-results') || document.createElement('div');
+        if (!found && searchTerm !== '') {
+            noResults.className = 'no-results';
+            noResults.textContent = 'No destinations found matching your search.';
+            destinationsCarousel.appendChild(noResults);
+        } else {
+            const existingNoResults = document.querySelector('.no-results');
+            if (existingNoResults) {
+                existingNoResults.remove();
+            }
         }
-        
-        // Initialize gradient colors
-        updateGradientColors();
+    }
+
+    if (searchInput && searchButton) {
+        searchButton.addEventListener('click', searchDestinations);
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                searchDestinations();
+            }
+        });
     }
 
     // Regular carousels functionality
@@ -199,66 +225,45 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Mobile menu toggle
-    const menuToggle = document.querySelector('.mobile-menu-toggle');
-    const nav = document.querySelector('.main-nav');
-
-    if (menuToggle && nav) {
-        menuToggle.addEventListener('click', () => {
-            nav.classList.toggle('active');
-            menuToggle.classList.toggle('active');
-        });
-    }
-
-    // Theme toggle
-    const themeToggle = document.querySelector('.theme-toggle button');
-    const body = document.body;
-
-    if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-theme');
-            const icon = themeToggle.querySelector('i');
-            if (icon) {
-                icon.classList.toggle('fa-sun');
-                icon.classList.toggle('fa-moon');
-            }
-        });
-    }
-
-    // Dark mode functionality
-    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-    
-    // Check for saved theme preference or use system preference
-    const currentTheme = localStorage.getItem('theme') || 
-        (prefersDarkScheme.matches ? 'dark' : 'light');
-    
-    // Set initial theme
-    document.documentElement.setAttribute('data-theme', currentTheme);
-    updateThemeIcon(currentTheme);
-
-    // Listen for system theme changes
-    prefersDarkScheme.addEventListener('change', (e) => {
-        if (!localStorage.getItem('theme')) {
-            const newTheme = e.matches ? 'dark' : 'light';
-            document.documentElement.setAttribute('data-theme', newTheme);
-            updateThemeIcon(newTheme);
-        }
-    });
-
-    // Mobile menu functionality
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const mainNav = document.querySelector('.main-nav');
-    
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!mainNav.contains(e.target) && mainNav.classList.contains('mobile-menu-open')) {
-            mainNav.classList.remove('mobile-menu-open');
-        }
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    // Add click event to mobile menu toggle
+    mobileMenuToggle.addEventListener('click', () => {
+        mainNav.classList.toggle('active');
+        mobileMenuToggle.classList.toggle('active');
     });
 
-    // Close mobile menu when clicking a link
+    // Close mobile menu when a link is clicked
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
-            mainNav.classList.remove('mobile-menu-open');
+            mainNav.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
+            
+            // Special handling for Home link
+            if (link.textContent.trim().toLowerCase() === 'home') {
+                const introSection = document.querySelector('.intro');
+                if (introSection) {
+                    // Check if we're not already at the top of the page
+                    if (window.scrollY > 100) {
+                        // Smooth scroll to intro section
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            }
         });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!mainNav.contains(e.target) && mainNav.classList.contains('active')) {
+            mainNav.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
+        }
     });
 
     // Smooth scrolling for anchor links
@@ -275,9 +280,3 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-
-// Update theme icon
-function updateThemeIcon(theme) {
-    const icon = themeToggle.querySelector('i');
-    icon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
-}
