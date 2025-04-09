@@ -315,8 +315,10 @@ body.dark-theme .main-nav {
 
 .carousel-slide img {
     width: 100%;
-    height: 500px;
+    height: auto;
+    max-height: 500px;
     object-fit: cover;
+    background-color: var(--background-secondary);
 }
 
 .carousel-caption {
@@ -1261,4 +1263,21 @@ body.dark-theme .activities,
 body.dark-theme .travel_tips,
 body.dark-theme .contact {
     background-color: var(--background-primary);
+}
+
+.activities-carousel .carousel-slide img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    background-color: var(--background-primary);
+}
+
+/* Specific positioning for beach relaxation image */
+.activities-carousel .carousel-slide img[alt="Beach Relaxation"] {
+    object-position: center 70%;
+}
+
+/* Specific positioning for El Nido Palawan image */
+.carousel-slide img[alt="El Nido"] {
+    object-position: center 70%;
 }
