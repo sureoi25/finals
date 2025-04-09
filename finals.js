@@ -155,15 +155,13 @@ document.addEventListener('DOMContentLoaded', function() {
             fetch(scriptURL, {
                 method: 'POST',
                 body: formData,
-                mode: 'no-cors' // Add this to handle CORS issues
+                mode: 'no-cors' 
             })
             .then(response => {
-                // Since we're using no-cors, we can't access the response
-                // Assume success if we get here
+                
                 formStatus.innerHTML = '<div class="success-message">Message sent successfully!</div>';
                 formSubmitBtn.textContent = 'Message Sent!';
-                
-                // Clear form
+
                 contactForm.reset();
             })
             .catch(error => {
@@ -389,4 +387,40 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // Destination highlight click functionality
+    const destinationHighlights = document.querySelectorAll('.destination_highlight');
+    
+    destinationHighlights.forEach(highlight => {
+        highlight.addEventListener('click', function() {
+            const destination = this.getAttribute('data-destination');
+            const infoCard = document.querySelector(`.info-card[data-destination="${destination}"]`);
+            
+            if (infoCard) {
+                // Remove highlight from all cards
+                document.querySelectorAll('.info-card').forEach(card => {
+                    card.classList.remove('highlight');
+                });
+                
+                // Add highlight to the target card
+                infoCard.classList.add('highlight');
+                
+                // Scroll to the destination info section
+                const destinationSection = document.getElementById('destination-info');
+                const cardTop = infoCard.getBoundingClientRect().top + window.pageYOffset;
+                const offset = 100; // Adjust this value based on your navbar height
+                
+                window.scrollTo({
+                    top: cardTop - offset,
+                    behavior: 'smooth'
+                });
+                
+                // Briefly scale up the card to draw attention
+                infoCard.style.transform = 'scale(1.03)';
+                setTimeout(() => {
+                    infoCard.style.transform = 'none';
+                }, 1500);
+            }
+        });
+    });
 });
