@@ -18,38 +18,171 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Simple form submission handling
-    const contactForm = document.querySelector('.contact_form');
+    // Enhanced form validation and submission handling
+    const contactForm = document.querySelector('#palawan-contact-form');
     if (contactForm) {
+        // Add validation classes to form fields
+        const formFields = contactForm.querySelectorAll('input, textarea');
+        formFields.forEach(field => {
+            // Add validation on blur
+            field.addEventListener('blur', function() {
+                validateField(this);
+            });
+            
+            // Add validation on input
+            field.addEventListener('input', function() {
+                if (this.classList.contains('error')) {
+                    validateField(this);
+                }
+            });
+        });
+        
+        // Validation function for individual fields
+        function validateField(field) {
+            const fieldId = field.id;
+            const fieldValue = field.value.trim();
+            let isValid = true;
+            let errorMessage = '';
+            
+            // Remove existing error message
+            const existingError = field.parentNode.querySelector('.error-message');
+            if (existingError) {
+                existingError.remove();
+            }
+            
+            // Validate based on field type
+            switch(fieldId) {
+                case 'name':
+                    if (fieldValue === '') {
+                        isValid = false;
+                        errorMessage = 'Name is required';
+                    } else if (fieldValue.length < 2) {
+                        isValid = false;
+                        errorMessage = 'Name must be at least 2 characters';
+                    }
+                    break;
+                    
+                case 'email':
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (fieldValue === '') {
+                        isValid = false;
+                        errorMessage = 'Email is required';
+                    } else if (!emailRegex.test(fieldValue)) {
+                        isValid = false;
+                        errorMessage = 'Please enter a valid email address';
+                    }
+                    break;
+                    
+                case 'subject':
+                    if (fieldValue === '') {
+                        isValid = false;
+                        errorMessage = 'Subject is required';
+                    } else if (fieldValue.length < 3) {
+                        isValid = false;
+                        errorMessage = 'Subject must be at least 3 characters';
+                    }
+                    break;
+                    
+                case 'message':
+                    if (fieldValue === '') {
+                        isValid = false;
+                        errorMessage = 'Message is required';
+                    } else if (fieldValue.length < 10) {
+                        isValid = false;
+                        errorMessage = 'Message must be at least 10 characters';
+                    }
+                    break;
+            }
+            
+            // Apply validation styling
+            if (!isValid) {
+                field.classList.add('error');
+                
+                // Add error message
+                const errorElement = document.createElement('div');
+                errorElement.className = 'error-message';
+                errorElement.textContent = errorMessage;
+                field.parentNode.appendChild(errorElement);
+            } else {
+                field.classList.remove('error');
+            }
+            
+            return isValid;
+        }
+        
+        // Form submission handler
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
+            
+            // Validate all fields
+            let isFormValid = true;
+            formFields.forEach(field => {
+                if (!validateField(field)) {
+                    isFormValid = false;
+                }
+            });
+            
+            if (!isFormValid) {
+                return;
+            }
             
             // Get form values
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
             const message = document.getElementById('message').value;
             
-            // Basic validation
-            if (!name || !email || !message) {
-                alert('Please fill in all fields');
-                return;
-            }
-            
-            // Display success message
+            // Get status element
+            const formStatus = document.getElementById('form-status');
             const formSubmitBtn = document.querySelector('.form_submit');
             const originalText = formSubmitBtn.textContent;
             
-            formSubmitBtn.textContent = 'Message Sent!';
+            // Update button state
+            formSubmitBtn.textContent = 'Sending...';
             formSubmitBtn.disabled = true;
             
-            // Clear form
-            contactForm.reset();
+            // Prepare form data
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('email', email);
+            formData.append('subject', subject);
+            formData.append('message', message);
             
-            // Reset button after 3 seconds
-            setTimeout(() => {
+            // Replace with your deployed Google Apps Script web app URL
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbxLB04hthAWTNdTTpi3U-Y82FFasUd2GB2L9qHy8BRlje0O_lw1Ocgu9ANWm_n9umbR-Q/exec';
+            
+            // Send data to Google Sheet via fetch API
+            fetch(scriptURL, {
+                method: 'POST',
+                body: formData,
+                mode: 'no-cors' // Add this to handle CORS issues
+            })
+            .then(response => {
+                // Since we're using no-cors, we can't access the response
+                // Assume success if we get here
+                formStatus.innerHTML = '<div class="success-message">Message sent successfully!</div>';
+                formSubmitBtn.textContent = 'Message Sent!';
+                
+                // Clear form
+                contactForm.reset();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                formStatus.innerHTML = '<div class="error-message">Network error. Please try again later.</div>';
                 formSubmitBtn.textContent = originalText;
-                formSubmitBtn.disabled = false;
-            }, 3000);
+            })
+            .finally(() => {
+                // Reset button after 3 seconds
+                setTimeout(() => {
+                    formSubmitBtn.textContent = originalText;
+                    formSubmitBtn.disabled = false;
+                    
+                    // Clear status message after 5 seconds
+                    setTimeout(() => {
+                        formStatus.innerHTML = '';
+                    }, 5000);
+                }, 3000);
+            });
         });
     }
 
@@ -189,4 +322,71 @@ document.addEventListener('DOMContentLoaded', function() {
             mobileMenuToggle.classList.remove('active');
         }
     });
+
+    // Search functionality
+    const searchInput = document.getElementById('searchInput');
+    const searchButton = document.getElementById('searchButton');
+
+    function performSearch() {
+        const searchTerm = searchInput.value.trim().toLowerCase();
+        if (!searchTerm) return;
+
+        const infoCards = document.querySelectorAll('.info-card');
+        let found = false;
+
+        infoCards.forEach(card => {
+            const cardTitle = card.querySelector('.card-header h3').textContent.toLowerCase();
+            const cardLocation = card.querySelector('.location').textContent.toLowerCase();
+            const cardDescription = card.querySelector('.description').textContent.toLowerCase();
+
+            if (cardTitle.includes(searchTerm) || 
+                cardLocation.includes(searchTerm) || 
+                cardDescription.includes(searchTerm)) {
+                found = true;
+                // Remove highlight from all cards
+                infoCards.forEach(c => {
+                    c.classList.remove('highlight');
+                    c.style.transform = 'none';
+                });
+                
+                // Add highlight to matching card
+                card.classList.add('highlight');
+                
+                // Scroll to the card
+                const destinationSection = document.getElementById('destination-info');
+                const cardTop = card.getBoundingClientRect().top + window.pageYOffset;
+                const offset = 100; // Adjust this value based on your navbar height
+                
+                window.scrollTo({
+                    top: cardTop - offset,
+                    behavior: 'smooth'
+                });
+
+                // Briefly scale up the card to draw attention
+                card.style.transform = 'scale(1.03)';
+                setTimeout(() => {
+                    card.style.transform = 'none';
+                }, 1500);
+            }
+        });
+
+        if (!found) {
+            // Optionally show a message that no results were found
+            alert('No matching destinations found.');
+        }
+    }
+
+    // Search on button click
+    if (searchButton) {
+        searchButton.addEventListener('click', performSearch);
+    }
+
+    // Search on Enter key press
+    if (searchInput) {
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+    }
 });

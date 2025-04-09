@@ -18,6 +18,12 @@
                     <li><a href="#destinations">Destinations</a></li>
                     <li><a href="#activities">Activities</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li class="search-container">
+                        <input type="text" id="searchInput" placeholder="Search destinations...">
+                        <button id="searchButton">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </li>
                     <li class="theme-toggle">
                         <button aria-label="Toggle dark mode">
                             <i class="fas fa-moon"></i>
@@ -45,7 +51,7 @@
                                 <span>Underground River</span>
                             </div>
                             <div class="destination_highlight">
-                                <img src="pics/destinations/twin lagoon palawan 2.png" alt="Twin Lagoon">
+                                <img src="pics/destinations/twin lagoon.jpg" alt="Twin Lagoon">
                                 <span>Twin Lagoon</span>
                             </div>
                             <div class="destination_highlight">
@@ -53,7 +59,7 @@
                                 <span>El Nido</span>
                             </div>
                             <div class="destination_highlight">
-                                <img src="pics/destinations/coron palawan.png" alt="Coron">
+                                <img src="pics/destinations/coron palawan.jpg" alt="Coron">
                                 <span>Coron</span>
                             </div>
                             <div class="destination_highlight">
@@ -78,28 +84,21 @@
                                 </div>
                             </div>
                             <div class="carousel-slide">
-                                <img src="pics/destinations/barracuda lake palawan2.jpg" alt="Barracuda Lake">
+                                <img src="pics/destinations/barracuda lake.jpg" alt="Barracuda Lake">
                                 <div class="carousel-caption">
                                     <h3>Barracuda Lake</h3>
                                     <p>This unique lake in Coron features varying water temperatures and is a popular spot for diving enthusiasts.</p>
                                 </div>
                             </div>
                             <div class="carousel-slide">
-                                <img src="pics/destinations/honda bay palawan.jpg" alt="Honda Bay">
+                                <img src="pics/destinations/honda bay.jpeg" alt="Honda Bay">
                                 <div class="carousel-caption">
                                     <h3>Honda Bay</h3>
                                     <p>A perfect destination for island hopping, featuring beautiful islands and rich marine life.</p>
                                 </div>
                             </div>
                             <div class="carousel-slide">
-                                <img src="pics/destinations/sabang beach palawan.jpg" alt="Sabang Beach">
-                                <div class="carousel-caption">
-                                    <h3>Sabang Beach</h3>
-                                    <p>Known for its proximity to the Puerto Princesa Underground River, this beach offers stunning views and relaxation.</p>
-                                </div>
-                            </div>
-                            <div class="carousel-slide">
-                                <img src="pics/destinations/twin lagoon palawan 2.png" alt="Twin Lagoon">
+                                <img src="pics/destinations/twin lagoon.jpg" alt="Twin Lagoon">
                                 <div class="carousel-caption">
                                     <h3>Twin Lagoon</h3>
                                     <p>Two stunning lagoons separated by a limestone wall, accessible by swimming through a small opening during low tide.</p>
@@ -141,31 +140,17 @@
                                 </div>
                             </div>
                             <div class="carousel-slide">
-                                <img src="pics/destinations/coron palawan.png" alt="Coron">
+                                <img src="pics/destinations/coron palawan.jpg" alt="Coron">
                                 <div class="carousel-caption">
                                     <h3>Coron</h3>
                                     <p>A stunning island destination known for its crystal clear waters, limestone cliffs, and world-class diving spots, offering a perfect blend of adventure and relaxation.</p>
                                 </div>
                             </div>
                             <div class="carousel-slide">
-                                <img src="pics/destinations/coron bay.png" alt="Coron Bay">
+                                <img src="pics\destinations\coron bay palawan.jpeg" alt="Coron Bay">
                                 <div class="carousel-caption">
                                     <h3>Coron Bay</h3>
                                     <p>A magnificent bay featuring pristine waters, hidden lagoons, and rich marine life, making it a paradise for divers and nature enthusiasts.</p>
-                                </div>
-                            </div>
-                            <div class="carousel-slide">
-                                <img src="pics/destinations/busuanga island.png" alt="Busuanga Island">
-                                <div class="carousel-caption">
-                                    <h3>Busuanga Island</h3>
-                                    <p>The largest island in the Calamian Group, featuring diverse wildlife, beautiful landscapes, and numerous diving spots, including famous WWII shipwrecks.</p>
-                                </div>
-                            </div>
-                            <div class="carousel-slide">
-                                <img src="pics/destinations/black island.jpg" alt="Black Island">
-                                <div class="carousel-caption">
-                                    <h3>Black Island</h3>
-                                    <p>A stunning island known for its black limestone cliffs, pristine beaches, and crystal clear waters, offering excellent snorkeling and diving opportunities.</p>
                                 </div>
                             </div>
                         </div>
@@ -225,6 +210,288 @@
                 </div>
             </section>
 
+            <section id="destination-info" class="destination-info">
+                <div class="content_wrapper">
+                    <h2 class="section_title">Destination Information</h2>
+                    <div class="info-cards">
+                        <div class="info-card" data-destination="banana island">
+                            <div class="card-frame">
+                                <div class="card-header">
+                                    <h3>Banana Island</h3>
+                                    <span class="location">Coron, Palawan</span>
+                                </div>
+                                <div class="card-image">
+                                    <img src="pics/destinations/banana island palawan.jpg" alt="Banana Island">
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-stats">
+                                        <div class="stat">
+                                            <span class="stat-label">Best Time</span>
+                                            <span class="stat-value">Nov-May</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="stat-label">Activities</span>
+                                            <span class="stat-value">Snorkeling • Swimming</span>
+                                        </div>
+                                    </div>
+                                    <p class="description">A secluded paradise with pristine beaches and crystal clear waters.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="info-card" data-destination="barracuda lake">
+                            <div class="card-frame">
+                                <div class="card-header">
+                                    <h3>Barracuda Lake</h3>
+                                    <span class="location">Coron, Palawan</span>
+                                </div>
+                                <div class="card-image">
+                                    <img src="pics/destinations/barracuda lake.jpg" alt="Barracuda Lake">
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-stats">
+                                        <div class="stat">
+                                            <span class="stat-label">Best Time</span>
+                                            <span class="stat-value">Year-round</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="stat-label">Activities</span>
+                                            <span class="stat-value">Diving • Swimming</span>
+                                        </div>
+                                    </div>
+                                    <p class="description">Unique lake with varying water temperatures, perfect for diving.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info-card" data-destination="honda bay">
+                            <div class="card-frame">
+                                <div class="card-header">
+                                    <h3>Honda Bay</h3>
+                                    <span class="location">Puerto Princesa</span>
+                                </div>
+                                <div class="card-image">
+                                    <img src="pics/destinations/honda bay.jpeg" alt="Honda Bay">
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-stats">
+                                        <div class="stat">
+                                            <span class="stat-label">Best Time</span>
+                                            <span class="stat-value">Nov-May</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="stat-label">Activities</span>
+                                            <span class="stat-value">Island Hopping • Swimming</span>
+                                        </div>
+                                    </div>
+                                    <p class="description">Perfect destination for island hopping with beautiful islands and rich marine life.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info-card" data-destination="twin lagoon">
+                            <div class="card-frame">
+                                <div class="card-header">
+                                    <h3>Twin Lagoon</h3>
+                                    <span class="location">Coron, Palawan</span>
+                                </div>
+                                <div class="card-image">
+                                    <img src="pics/destinations/twin lagoon.jpg" alt="Twin Lagoon">
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-stats">
+                                        <div class="stat">
+                                            <span class="stat-label">Best Time</span>
+                                            <span class="stat-value">Dec-Mar</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="stat-label">Activities</span>
+                                            <span class="stat-value">Swimming • Kayaking</span>
+                                        </div>
+                                    </div>
+                                    <p class="description">Two stunning lagoons separated by a limestone wall.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info-card" data-destination="twin lagoon view">
+                            <div class="card-frame">
+                                <div class="card-header">
+                                    <h3>Twin Lagoon View</h3>
+                                    <span class="location">Coron, Palawan</span>
+                                </div>
+                                <div class="card-image">
+                                    <img src="pics/destinations/twin lagoon palawan 3.jpg" alt="Twin Lagoon View">
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-stats">
+                                        <div class="stat">
+                                            <span class="stat-label">Best Time</span>
+                                            <span class="stat-value">Dec-Mar</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="stat-label">Activities</span>
+                                            <span class="stat-value">Photography • Sightseeing</span>
+                                        </div>
+                                    </div>
+                                    <p class="description">Breathtaking views of crystal clear waters and towering limestone cliffs.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info-card" data-destination="underground river">
+                            <div class="card-frame">
+                                <div class="card-header">
+                                    <h3>Underground River</h3>
+                                    <span class="location">Puerto Princesa</span>
+                                </div>
+                                <div class="card-image">
+                                    <img src="pics/destinations/underground river inside.jpg" alt="Underground River">
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-stats">
+                                        <div class="stat">
+                                            <span class="stat-label">Best Time</span>
+                                            <span class="stat-value">Dec-May</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="stat-label">Activities</span>
+                                            <span class="stat-value">Cave Tours • Wildlife</span>
+                                        </div>
+                                    </div>
+                                    <p class="description">UNESCO World Heritage site with stunning limestone formations.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info-card" data-destination="big lagoon">
+                            <div class="card-frame">
+                                <div class="card-header">
+                                    <h3>Big Lagoon</h3>
+                                    <span class="location">El Nido, Palawan</span>
+                                </div>
+                                <div class="card-image">
+                                    <img src="pics/destinations/big lagoon palawan.jpg" alt="Big Lagoon">
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-stats">
+                                        <div class="stat">
+                                            <span class="stat-label">Best Time</span>
+                                            <span class="stat-value">Nov-May</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="stat-label">Activities</span>
+                                            <span class="stat-value">Kayaking • Swimming</span>
+                                        </div>
+                                    </div>
+                                    <p class="description">Natural wonder with towering cliffs and emerald waters.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info-card" data-destination="el nido">
+                            <div class="card-frame">
+                                <div class="card-header">
+                                    <h3>El Nido</h3>
+                                    <span class="location">Palawan</span>
+                                </div>
+                                <div class="card-image">
+                                    <img src="pics/destinations/el nido palawan.jpg" alt="El Nido">
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-stats">
+                                        <div class="stat">
+                                            <span class="stat-label">Best Time</span>
+                                            <span class="stat-value">Nov-May</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="stat-label">Activities</span>
+                                            <span class="stat-value">Island Hopping • Diving</span>
+                                        </div>
+                                    </div>
+                                    <p class="description">Paradise of limestone cliffs, hidden lagoons, and pristine beaches.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info-card" data-destination="kayangan lake">
+                            <div class="card-frame">
+                                <div class="card-header">
+                                    <h3>Kayangan Lake</h3>
+                                    <span class="location">Coron, Palawan</span>
+                                </div>
+                                <div class="card-image">
+                                    <img src="pics/destinations/kayangan lake 2.jpg" alt="Kayangan Lake">
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-stats">
+                                        <div class="stat">
+                                            <span class="stat-label">Best Time</span>
+                                            <span class="stat-value">Dec-May</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="stat-label">Activities</span>
+                                            <span class="stat-value">Swimming • Photography</span>
+                                        </div>
+                                    </div>
+                                    <p class="description">The cleanest lake in Asia with crystal clear waters.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info-card" data-destination="coron">
+                            <div class="card-frame">
+                                <div class="card-header">
+                                    <h3>Coron</h3>
+                                    <span class="location">Palawan</span>
+                                </div>
+                                <div class="card-image">
+                                    <img src="pics/destinations/coron palawan.jpg" alt="Coron">
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-stats">
+                                        <div class="stat">
+                                            <span class="stat-label">Best Time</span>
+                                            <span class="stat-value">Nov-May</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="stat-label">Activities</span>
+                                            <span class="stat-value">Diving • Island Hopping</span>
+                                        </div>
+                                    </div>
+                                    <p class="description">Stunning destination with world-class diving spots.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info-card" data-destination="coron bay">
+                            <div class="card-frame">
+                                <div class="card-header">
+                                    <h3>Coron Bay</h3>
+                                    <span class="location">Coron, Palawan</span>
+                                </div>
+                                <div class="card-image">
+                                    <img src="pics/destinations/coron bay palawan.jpeg" alt="Coron Bay">
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-stats">
+                                        <div class="stat">
+                                            <span class="stat-label">Best Time</span>
+                                            <span class="stat-value">Nov-May</span>
+                                        </div>
+                                        <div class="stat">
+                                            <span class="stat-label">Activities</span>
+                                            <span class="stat-value">Diving • Snorkeling</span>
+                                        </div>
+                                    </div>
+                                    <p class="description">Magnificent bay with pristine waters and rich marine life.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <section id="contact" class="contact">
                 <div class="content_wrapper">
                     <h2 class="section_title">Contact Us</h2>
@@ -233,12 +500,12 @@
                             <h3>Have Questions?</h3>
                             <p>Feel free to reach out to us for more information about Palawan destinations and activities. We're here to help plan your perfect trip!</p>
                             <div class="social_links">
-                                <a href="https://www.facebook.com/profile.php?id=100094012902794" class="social_link" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                                <a href="https://www.instagram.com/judd.nallos.tagalog/" class="social_link" target="_blank"><i class="fab fa-instagram"></i></a>
+                                <a href="https://www.facebook.com/profile.php?id=61573158244529" class="social_link" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://www.instagram.com/j_dmvp_t/" class="social_link" target="_blank"><i class="fab fa-instagram"></i></a>
                             </div>
                         </div>
                         <div class="contact_form">
-                            <form action="mailto:judd.nallos.tagalog@gmail.com" method="post" enctype="text/plain">
+                            <form id="palawan-contact-form" method="post">
                                 <div class="form_group">
                                     <label for="name">Name</label>
                                     <input type="text" id="name" name="name" required>
@@ -256,6 +523,7 @@
                                     <textarea id="message" name="message" rows="5" required></textarea>
                                 </div>
                                 <button type="submit" class="form_submit">Send Message</button>
+                                <div id="form-status" class="form-status"></div>
                             </form>
                         </div>
                     </div>
