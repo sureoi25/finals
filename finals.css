@@ -276,6 +276,7 @@ body.dark-theme .main-nav {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
 }
 
 .destination_highlight span {
@@ -412,6 +413,7 @@ body.dark-theme .main-nav {
 .contact {
     background-color: var(--background-secondary);
     color: var(--light-text);
+    padding: var(--section-padding);
 }
 
 .section_title {
@@ -423,9 +425,12 @@ body.dark-theme .main-nav {
 
 /* Contact Section */
 .contact_container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
     gap: 50px;
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .contact_info {
@@ -803,251 +808,57 @@ body.dark-theme .site-footer {
     :root {
         --content-width: 1400px;
         --section-padding: 100px 0;
-        --base-font-size: 1.1rem;
-    }
-
-    body {
-        font-size: var(--base-font-size);
-    }
-
-    .content_wrapper {
-        max-width: var(--content-width);
-        margin: 0 auto;
-        padding: 0 40px;
     }
     
-    .nav-container {
-        justify-content: center;
-        gap: 60px;
-    }
-    
-    .mobile-menu-toggle {
-        order: -1;
-    }
-    
-    .nav-links {
-        margin: 0;
-    }
-
-    .intro {
-        min-height: 100vh;
-        padding: 160px 0 100px;
-    }
-
-    .intro_title {
-        font-size: 4.2rem;
-        margin-bottom: 30px;
-    }
-
-    .intro_subtitle {
-        font-size: 2.7rem;
-        margin-bottom: 40px;
-    }
-
-    .intro_text {
-        font-size: 1.5rem;
-        max-width: 800px;
-        margin: 0 auto 50px;
-    }
-
-    .destination_highlights {
-    gap: 30px;
-        margin-bottom: 50px;
-    }
-
-    .destination_highlight {
-        width: 180px;
-        height: 180px;
-    }
-
-    .destination_highlight span {
-        font-size: 1.2rem;
-        padding: 12px;
-    }
-
-    .carousel {
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    .carousel-slide {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: var(--background-secondary);
-    }
-    
-    .carousel-slide img {
-        height: 600px;
-        max-width: 1400px;
-        width: 100%;
-        object-fit: contain;
-        background-color: var(--background-secondary);
-    }
-
-    .activities .carousel-slide {
-        background-color: var(--background-primary);
-    }
-
-    .activities .carousel-slide img {
-        background-color: var(--background-primary);
-    }
-
-    .carousel-caption {
-        padding: 40px;
-    }
-
-    .carousel-caption h3 {
-        font-size: 2.2rem;
-        margin-bottom: 20px;
-    }
-
-    .carousel-caption p {
-        font-size: 1.3rem;
-        max-width: 800px;
-        margin: 0 auto;
-    }
-
-    .carousel-button {
-        width: 50px;
-        height: 50px;
-        font-size: 1.5rem;
-    }
-
-    .carousel-dots {
-        bottom: 30px;
-    }
-
-    .dot {
-        width: 15px;
-        height: 15px;
-    }
-
-    .section_title {
-        font-size: 3.2rem;
-        margin-bottom: 60px;
-    }
-
-    .contact_container {
-        gap: 60px;
-        padding: 0 40px;
-    }
-
-    .contact_info {
-        padding: 40px;
-    }
-
-    .contact_info h3 {
-        font-size: 2.2rem;
-    margin-bottom: 30px;
-}
-
-    .contact_info p {
-        font-size: 1.3rem;
-        margin-bottom: 40px;
-    }
-
-    .form_group input,
-    .form_group textarea {
-        padding: 15px;
-        font-size: 1.2rem;
-    }
-
-    .form_submit {
-        padding: 15px 40px;
-        font-size: 1.3rem;
-    }
-
     .nav-links a {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
     
-    .top_destinations h3 {
-        font-size: 2rem;
-        margin-bottom: 20px;
+    #destination-search {
+        font-size: 1.2rem;
+        padding: 12px 45px 12px 18px;
+    }
+    
+    .search-button {
+        font-size: 1.2rem;
+    }
+    
+    .destination_highlight {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .destination_highlight img {
+        object-position: center;
     }
 }
 
 @media (min-width: 1800px) {
     :root {
         --content-width: 1600px;
-        --base-font-size: 1.2rem;
+        --section-padding: 120px 0;
     }
     
-    body {
-        font-size: var(--base-font-size);
-    }
-    
-    .nav-container {
-        gap: 80px;
-    }
-
-    .carousel-slide img {
-        height: 700px;
-        max-width: 1600px;
-    }
-
-    .intro_title {
-        font-size: 4.8rem;
-    }
-
-    .intro_subtitle {
-        font-size: 3.2rem;
-    }
-    
-    .intro_text {
-        font-size: 1.6rem;
-    }
-
-    .destination_highlight {
-        width: 200px;
-        height: 200px;
-    }
-
-    .destination_highlight span {
-        font-size: 1.3rem;
-        padding: 15px;
-    }
-
-    .destination_highlights {
-        gap: 40px;
-    }
-    
-    .carousel-caption h3 {
-        font-size: 2.4rem;
-    }
-    
-    .carousel-caption p {
-        font-size: 1.4rem;
-    }
-    
-    .section_title {
-        font-size: 3.5rem;
-    }
-    
-    .contact_info h3 {
-        font-size: 2.4rem;
-    }
-    
-    .contact_info p {
-        font-size: 1.4rem;
-    }
-    
-    .form_group input,
-    .form_group textarea {
-        font-size: 1.3rem;
-    }
-    
-    .form_submit {
-        font-size: 1.4rem;
-    }
-
     .nav-links a {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
     }
     
-    .top_destinations h3 {
-        font-size: 2.2rem;
+    #destination-search {
+        font-size: 1.3rem;
+        padding: 14px 50px 14px 20px;
+    }
+    
+    .search-button {
+        font-size: 1.3rem;
+    }
+    
+    .destination_highlight {
+        width: 220px;
+        height: 220px;
+    }
+    
+    .destination_highlight img {
+        object-position: center;
     }
 }
 
