@@ -1,6 +1,5 @@
-// Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Smooth scrolling for navigation links
+    //smooth scrolling sa tanan
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -18,18 +17,18 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Enhanced form validation and submission handling
+    //form validation and form submission
     const contactForm = document.querySelector('#palawan-contact-form');
     if (contactForm) {
         // Add validation classes to form fields
         const formFields = contactForm.querySelectorAll('input, textarea');
         formFields.forEach(field => {
-            // Add validation on blur
+            //validate on blur
             field.addEventListener('blur', function() {
                 validateField(this);
             });
             
-            // Add validation on input
+            //validate on input
             field.addEventListener('input', function() {
                 if (this.classList.contains('error')) {
                     validateField(this);
@@ -37,20 +36,20 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
         
-        // Validation function for individual fields
+        //validate for individual fields
         function validateField(field) {
             const fieldId = field.id;
             const fieldValue = field.value.trim();
             let isValid = true;
             let errorMessage = '';
             
-            // Remove existing error message
+            //remove existing error message
             const existingError = field.parentNode.querySelector('.error-message');
             if (existingError) {
                 existingError.remove();
             }
             
-            // Validate based on field type
+            //validate based on field type 
             switch(fieldId) {
                 case 'name':
                     if (fieldValue === '') {
@@ -94,11 +93,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     break;
             }
             
-            // Apply validation styling
+            //apply validation styling
             if (!isValid) {
                 field.classList.add('error');
                 
-                // Add error message
+                //add error message
                 const errorElement = document.createElement('div');
                 errorElement.className = 'error-message';
                 errorElement.textContent = errorMessage;
@@ -110,11 +109,11 @@ document.addEventListener('DOMContentLoaded', function() {
             return isValid;
         }
         
-        // Form submission handler
+        //add the function to contact form 
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Validate all fields
+            //validate all the fields
             let isFormValid = true;
             formFields.forEach(field => {
                 if (!validateField(field)) {
@@ -126,32 +125,31 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             
-            // Get form values
+            //get the values of each 
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const subject = document.getElementById('subject').value;
             const message = document.getElementById('message').value;
             
-            // Get status element
+            //get status element
             const formStatus = document.getElementById('form-status');
             const formSubmitBtn = document.querySelector('.form_submit');
             const originalText = formSubmitBtn.textContent;
             
-            // Update button state
+            //update the button state 
             formSubmitBtn.textContent = 'Sending...';
             formSubmitBtn.disabled = true;
             
-            // Prepare form data
+            //ang values e himog form data para e butang sa g sheets
             const formData = new FormData();
             formData.append('name', name);
             formData.append('email', email);
             formData.append('subject', subject);
             formData.append('message', message);
             
-            // Replace with your deployed Google Apps Script web app URL
             const scriptURL = 'https://script.google.com/macros/s/AKfycbxLB04hthAWTNdTTpi3U-Y82FFasUd2GB2L9qHy8BRlje0O_lw1Ocgu9ANWm_n9umbR-Q/exec';
             
-            // Send data to Google Sheet via fetch API
+            //send data to g sheets using fetch api
             fetch(scriptURL, {
                 method: 'POST',
                 body: formData,
@@ -170,12 +168,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 formSubmitBtn.textContent = originalText;
             })
             .finally(() => {
-                // Reset button after 3 seconds
+                //e reset ang button after 3 seconds
                 setTimeout(() => {
                     formSubmitBtn.textContent = originalText;
                     formSubmitBtn.disabled = false;
                     
-                    // Clear status message after 5 seconds
+                    //e clear ang status message after 5 seconds
                     setTimeout(() => {
                         formStatus.innerHTML = '';
                     }, 5000);
@@ -206,12 +204,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Theme toggle functionality
+    //dark,light mode toggle
     const themeToggle = document.querySelector('.theme-toggle button');
     const body = document.body;
 
     if (themeToggle) {
-        // Check for saved theme preference
+        //check if unsa nga theme gigamit daan
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'dark') {
             body.classList.add('dark-theme');
@@ -229,20 +227,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 icon.classList.toggle('fa-sun');
                 icon.classList.toggle('fa-moon');
             }
-            
-            // Save theme preference
+            //set ang theme gigamit last
             localStorage.setItem('theme', body.classList.contains('dark-theme') ? 'dark' : 'light');
         });
     }
 
-    // Regular carousels functionality
+    //carousel 
     const carousels = document.querySelectorAll('.carousel, .activities-carousel');
     carousels.forEach(carousel => {
         const slides = carousel.querySelectorAll('.carousel-slide');
         const dotsContainer = carousel.querySelector('.carousel-dots');
         let currentSlide = 0;
         
-        // Create dots for carousel
+        //dots for carousel
         slides.forEach((_, index) => {
             const dot = document.createElement('div');
             dot.classList.add('dot');
@@ -260,7 +257,7 @@ document.addEventListener('DOMContentLoaded', function() {
             currentSlide = index;
         }
 
-        // Add click events to navigation buttons
+        //event listener sa prev and next button sa mga carousel
         const prevButton = carousel.querySelector('.carousel-button.prev');
         const nextButton = carousel.querySelector('.carousel-button.next');
 
@@ -279,30 +276,30 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Mobile menu toggle
+    //mobile navbar 
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const mainNav = document.querySelector('.main-nav');
     const navLinks = document.querySelectorAll('.nav-links a');
 
-    // Add click event to mobile menu toggle
+    //click event to mobile menu
     mobileMenuToggle.addEventListener('click', () => {
         mainNav.classList.toggle('active');
         mobileMenuToggle.classList.toggle('active');
     });
 
-    // Close mobile menu when a link is clicked
+    //if gi abli ang mobile menu, niya ni clickon any of the nav links, close the menu
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             mainNav.classList.remove('active');
             mobileMenuToggle.classList.remove('active');
             
-            // Special handling for Home link
+            //handle home link
             if (link.textContent.trim().toLowerCase() === 'home') {
                 const introSection = document.querySelector('.intro');
                 if (introSection) {
-                    // Check if we're not already at the top of the page
+                    //check if wala sa home page daan
                     if (window.scrollY > 100) {
-                        // Smooth scroll to intro section
+                        //smooth scroll to intro
                         window.scrollTo({
                             top: 0,
                             behavior: 'smooth'
@@ -313,7 +310,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Close mobile menu when clicking outside
+    //if mu click outside sa menu close the mobile menu
     document.addEventListener('click', (e) => {
         if (!mainNav.contains(e.target) && mainNav.classList.contains('active')) {
             mainNav.classList.remove('active');
@@ -321,7 +318,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Search functionality
+    //get search, ang input sa search bar and ang button imsmo
     const searchInput = document.getElementById('searchInput');
     const searchButton = document.getElementById('searchButton');
 
@@ -341,26 +338,26 @@ document.addEventListener('DOMContentLoaded', function() {
                 cardLocation.includes(searchTerm) || 
                 cardDescription.includes(searchTerm)) {
                 found = true;
-                // Remove highlight from all cards
+                //e rmeove ang highlight from all cards
                 infoCards.forEach(c => {
                     c.classList.remove('highlight');
                     c.style.transform = 'none';
                 });
                 
-                // Add highlight to matching card
+                //e highlight ang card nga mu match sa search
                 card.classList.add('highlight');
                 
-                // Scroll to the card
+                //scroll to card nga mu match
                 const destinationSection = document.getElementById('destination-info');
                 const cardTop = card.getBoundingClientRect().top + window.pageYOffset;
-                const offset = 100; // Adjust this value based on your navbar height
+                const offset = 100;
                 
                 window.scrollTo({
                     top: cardTop - offset,
                     behavior: 'smooth'
                 });
 
-                // Briefly scale up the card to draw attention
+                //scale up ang card nga gi highlight for 1.5seconds
                 card.style.transform = 'scale(1.03)';
                 setTimeout(() => {
                     card.style.transform = 'none';
@@ -369,17 +366,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         if (!found) {
-            // Optionally show a message that no results were found
+            //if walay mu match show no match
             alert('No matching destinations found.');
         }
     }
 
-    // Search on button click
+    //search ig click sa search button
     if (searchButton) {
         searchButton.addEventListener('click', performSearch);
     }
 
-    // Search on Enter key press
+    //search ig mu pislit enter
     if (searchInput) {
         searchInput.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
@@ -388,7 +385,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Destination highlight click functionality
+    // if e click ang top destinations mu adto sa corresponding info card
     const destinationHighlights = document.querySelectorAll('.destination_highlight');
     
     destinationHighlights.forEach(highlight => {
@@ -397,25 +394,25 @@ document.addEventListener('DOMContentLoaded', function() {
             const infoCard = document.querySelector(`.info-card[data-destination="${destination}"]`);
             
             if (infoCard) {
-                // Remove highlight from all cards
+                //remove ang highlight from all info cards
                 document.querySelectorAll('.info-card').forEach(card => {
                     card.classList.remove('highlight');
                 });
                 
-                // Add highlight to the target card
+                //add highlight to card
                 infoCard.classList.add('highlight');
                 
-                // Scroll to the destination info section
+                //scroll to the info card
                 const destinationSection = document.getElementById('destination-info');
                 const cardTop = infoCard.getBoundingClientRect().top + window.pageYOffset;
-                const offset = 100; // Adjust this value based on your navbar height
+                const offset = 100;
                 
                 window.scrollTo({
                     top: cardTop - offset,
                     behavior: 'smooth'
                 });
                 
-                // Briefly scale up the card to draw attention
+                //scale up ang highlighted for 1.5 seconds
                 infoCard.style.transform = 'scale(1.03)';
                 setTimeout(() => {
                     infoCard.style.transform = 'none';
