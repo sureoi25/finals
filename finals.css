@@ -1,4 +1,4 @@
-/* Base Styles */
+/* base styles */
 :root {
     --background-primary: #E9D59C;
     --background-secondary: #64B8B1;
@@ -57,7 +57,7 @@ img {
     display: block;
 }
 
-/* Navigation */
+/* navigation css */
 .main-nav {
     position: fixed;
     top: 0;
@@ -180,7 +180,7 @@ body.dark-theme .main-nav {
     bottom: 0;
 }
 
-/* Intro Section */
+/* intro css */
 .intro {
     position: relative;
     min-height: 100vh;
@@ -231,7 +231,7 @@ body.dark-theme .main-nav {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-/* Top Destinations */
+/* top destinations css */
 .top_destinations {
     margin-bottom: 40px;
 }
@@ -287,7 +287,7 @@ body.dark-theme .main-nav {
     text-align: center;
 }
 
-/* Carousel Styles */
+/* carousel css */
 .carousel, .activities-carousel {
     position: relative;
     max-width: 1000px;
@@ -337,7 +337,7 @@ body.dark-theme .main-nav {
     padding-bottom: 15px;
 }
 
-/* Carousel Navigation */
+/* carousel buttons and dots */
 .carousel-button {
     position: absolute;
     top: 50%;
@@ -392,16 +392,16 @@ body.dark-theme .main-nav {
     background-color: var(--accent-color);
     transform: scale(1.2);
 }
-/* Specific positioning for beach relaxation image */
+/* position sa beach relaxation pic kay ang forest makita instead of ang beach */
 .activities-carousel .carousel-slide img[alt="Beach Relaxation"] {
     object-position: center 70%;
 }
 
-/* Specific positioning for El Nido Palawan image */
+/* position for el nido image*/
 .carousel-slide img[alt="El Nido"] {
     object-position: center 70%;
 }
-/* Destination Info Cards */
+/* info cards css */
 .destination-info {
     padding: 4rem 0;
     background: var(--background-color);
@@ -507,7 +507,7 @@ body.dark-theme .main-nav {
     line-height: 1.5;
     color: var(--text-color);
 }
-/* Section Styles */
+/* sections css */
 .destinations, .activities, .contact {
     padding: var(--section-padding);
 }
@@ -534,7 +534,7 @@ body.dark-theme .main-nav {
     color: var(--light-text);
 }
 
-/* Contact Section */
+/* contact */
 .contact_container {
     display: flex;
     flex-wrap: wrap;
@@ -636,7 +636,7 @@ body.dark-theme .main-nav {
     transform: translateY(-2px);
 }
 
-/* Dark theme adjustments for contact form */
+/* dark theme for contact form */
 body.dark-theme .form_group input,
 body.dark-theme .form_group textarea {
     background-color: rgba(255, 255, 255, 0.1);
@@ -650,7 +650,7 @@ body.dark-theme .form_group textarea:focus {
     box-shadow: 0 0 0 2px rgba(34, 190, 217, 0.3);
 }
 
-/* Form Validation Styles */
+/* for validation css */
 .form_group input.error,
 .form_group textarea.error {
     border-color: #ff3333;
@@ -664,7 +664,7 @@ body.dark-theme .form_group textarea:focus {
     display: block;
 }
 
-/* Dark theme adjustments for form validation */
+/* dark theme for form validation */
 body.dark-theme .form_group input.error,
 body.dark-theme .form_group textarea.error {
     border-color: #ff5555;
@@ -675,7 +675,7 @@ body.dark-theme .error-message {
     color: #ff5555;
 }
 
-/* Footer Styles */
+/* footer css */
 .site-footer {
     background-color: var(--background-secondary);
     color: var(--light-text);
@@ -697,12 +697,12 @@ body.dark-theme .error-message {
 }
 
 
-/* Dark theme adjustments for footer */
+/* dark theme for footer */
 body.dark-theme .site-footer {
     background-color: var(--background-primary);
 }
 
-/* Responsive Styles */
+/* responsive css for mobile */
 @media (max-width: 1024px) {
     :root {
         --content-width: 900px;
@@ -915,7 +915,7 @@ body.dark-theme .site-footer {
     }
 }
 
-/* Large screen adjustments */
+/* large screens */
 @media (min-width: 1400px) {
     :root {
         --content-width: 1400px;
@@ -1000,7 +1000,7 @@ input.error, textarea.error {
 }
 
 
-/* Media Queries for Info Cards */
+/* info cards css for responsive */
 @media (max-width: 1024px) {
     .info-cards {
         grid-template-columns: repeat(2, 1fr);
@@ -1069,7 +1069,7 @@ input.error, textarea.error {
     }
 }
 
-/* Large screen adjustments */
+/* large screen info cards */
 @media (min-width: 1400px) {
     .info-cards {
         grid-template-columns: repeat(2, 1fr);
@@ -1143,7 +1143,7 @@ input.error, textarea.error {
     }
 }
 
-/* Search Container Styles */
+/* search bar css */
 .search-container {
     display: flex;
     gap: 8px;
@@ -1187,13 +1187,13 @@ input.error, textarea.error {
     color: var(--accent-color);
 }
 
-/* Search highlight effect */
+/* highlight ig search */
 .info-card.highlight .card-frame {
     box-shadow: 0 0 25px var(--accent-color);
     border: 2px solid var(--accent-color);
 }
 
-/* Responsive search styles */
+/* responsivenes sa search bar */
 @media (max-width: 1024px) {
     .search-container {
         margin: 0 10px;
@@ -1225,7 +1225,7 @@ input.error, textarea.error {
     }
 }
 
-/* Dark theme adjustments */
+/* dark theme */
 body.dark-theme {
     --background-primary: #121212;
     --background-secondary: #1e1e1e;
@@ -1234,7 +1234,7 @@ body.dark-theme {
     --card-bg: #2a2a2a;
 }
 
-/* Card Styles */
+/* card css */
 .card {
     background-color: var(--card-bg);
     border-radius: 10px;
@@ -1251,7 +1251,7 @@ body.dark-theme {
     box-shadow: 0 10px 20px var(--card-shadow);
 }
 
-/* Dark theme adjustments for cards */
+/* dark theme for cards */
 body.dark-theme .card {
     background-color: #2a2a2a;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
@@ -1261,7 +1261,7 @@ body.dark-theme .card:hover {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
 
-/* Dark theme adjustments for sections */
+/* dark theme for sections */
 body.dark-theme .destinations,
 body.dark-theme .activities,
 body.dark-theme .travel_tips,
