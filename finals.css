@@ -73,7 +73,7 @@ body.dark-theme .main-nav {
     background-color: rgba(26, 26, 26, 0.95);
 }
 
-.nav-container {
+.nav_gang {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -139,7 +139,7 @@ body.dark-theme .main-nav {
     padding: 10px;
 }
 
-.hamburger {
+.borgir {
     display: block;
     width: 25px;
     height: 3px;
@@ -148,8 +148,8 @@ body.dark-theme .main-nav {
     transition: var(--transition);
 }
 
-.hamburger::before,
-.hamburger::after {
+.borgir::before,
+.borgir::after {
     content: '';
     position: absolute;
     width: 100%;
@@ -158,24 +158,24 @@ body.dark-theme .main-nav {
     transition: var(--transition);
 }
 
-.hamburger::before {
+.borgir::before {
     top: -8px;
 }
 
-.hamburger::after {
+.borgir::after {
     bottom: -8px;
 }
 
-.mobile-menu-toggle.active .hamburger {
+.mobile-menu-toggle.active .borgir {
     background-color: transparent;
 }
 
-.mobile-menu-toggle.active .hamburger::before {
+.mobile-menu-toggle.active .borgir::before {
     transform: rotate(45deg);
     top: 0;
 }
 
-.mobile-menu-toggle.active .hamburger::after {
+.mobile-menu-toggle.active .borgir::after {
     transform: rotate(-45deg);
     bottom: 0;
 }
@@ -397,7 +397,7 @@ body.dark-theme .main-nav {
     object-position: center 70%;
 }
 
-/* position for el nido image*/
+/* position for el nido image kay ang babaw ang makita instead of ang beach*/
 .carousel-slide img[alt="El Nido"] {
     object-position: center 70%;
 }
@@ -783,7 +783,7 @@ body.dark-theme .site-footer {
         margin-right: 10px;
     }
     
-    .search-container {
+    .search_gang{
         width: 100%;
         margin: 15px 0;
         justify-content: center;
@@ -1144,7 +1144,7 @@ input.error, textarea.error {
 }
 
 /* search bar css */
-.search-container {
+.search_gang {
     display: flex;
     gap: 8px;
     align-items: center;
@@ -1195,7 +1195,7 @@ input.error, textarea.error {
 
 /* responsivenes sa search bar */
 @media (max-width: 1024px) {
-    .search-container {
+    .search_gang {
         margin: 0 10px;
     }
 
@@ -1209,7 +1209,7 @@ input.error, textarea.error {
 }
 
 @media (max-width: 768px) {
-    .search-container {
+    .search_gang {
         width: 100%;
         margin: 10px 0;
         justify-content: center;
