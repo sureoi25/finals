@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     //dark,light mode toggle
-    const themeToggle = document.querySelector('.theme-toggle button');
+    const themeToggle = document.querySelector('.theme_toggle button');
     const body = document.body;
 
     if (themeToggle) {
@@ -233,10 +233,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     //carousel 
-    const carousels = document.querySelectorAll('.carousel, .activities-carousel');
+    const carousels = document.querySelectorAll('.carousel, .activities_carousel');
     carousels.forEach(carousel => {
-        const slides = carousel.querySelectorAll('.carousel-slide');
-        const dotsContainer = carousel.querySelector('.carousel-dots');
+        const slides = carousel.querySelectorAll('.carousel_slide');
+        const dotsContainer = carousel.querySelector('.carousel_dots');
         let currentSlide = 0;
         
         //dots for carousel
@@ -251,15 +251,15 @@ document.addEventListener('DOMContentLoaded', function() {
         const dots = dotsContainer.querySelectorAll('.dot');
 
         function moveToSlide(index) {
-            carousel.querySelector('.carousel-container').style.transform = `translateX(-${index * 100}%)`;
+            carousel.querySelector('.carousel_container').style.transform = `translateX(-${index * 100}%)`;
             dots.forEach(dot => dot.classList.remove('active'));
             dots[index].classList.add('active');
             currentSlide = index;
         }
 
         //event listener sa prev and next button sa mga carousel
-        const prevButton = carousel.querySelector('.carousel-button.prev');
-        const nextButton = carousel.querySelector('.carousel-button.next');
+        const prevButton = carousel.querySelector('.carousel_button.prev');
+        const nextButton = carousel.querySelector('.carousel_button.next');
 
         if (prevButton) {
             prevButton.addEventListener('click', () => {
@@ -277,9 +277,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     //mobile navbar 
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileMenuToggle = document.querySelector('.mobile_menu_toggle');
     const mainNav = document.querySelector('.main-nav');
-    const navLinks = document.querySelectorAll('.nav-links a');
+    const navLinks = document.querySelectorAll('.nav_links a');
 
     //click event to mobile menu
     mobileMenuToggle.addEventListener('click', () => {
@@ -326,7 +326,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const searchTerm = searchInput.value.trim().toLowerCase();
         if (!searchTerm) return;
 
-        const infoCards = document.querySelectorAll('.info-card');
+        const infoCards = document.querySelectorAll('.i_card');
         let found = false;
 
         infoCards.forEach(card => {
@@ -391,11 +391,11 @@ document.addEventListener('DOMContentLoaded', function() {
     destinationHighlights.forEach(highlight => {
         highlight.addEventListener('click', function() {
             const destination = this.getAttribute('data-destination');
-            const infoCard = document.querySelector(`.info-card[data-destination="${destination}"]`);
+            const infoCard = document.querySelector(`.i_card[data-destination="${destination}"]`);
             
             if (infoCard) {
                 //remove ang highlight from all info cards
-                document.querySelectorAll('.info-card').forEach(card => {
+                document.querySelectorAll('.i_card').forEach(card => {
                     card.classList.remove('highlight');
                 });
                 
