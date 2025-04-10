@@ -392,7 +392,121 @@ body.dark-theme .main-nav {
     background-color: var(--accent-color);
     transform: scale(1.2);
 }
+/* Specific positioning for beach relaxation image */
+.activities-carousel .carousel-slide img[alt="Beach Relaxation"] {
+    object-position: center 70%;
+}
 
+/* Specific positioning for El Nido Palawan image */
+.carousel-slide img[alt="El Nido"] {
+    object-position: center 70%;
+}
+/* Destination Info Cards */
+.destination-info {
+    padding: 4rem 0;
+    background: var(--background-color);
+    min-height: 100vh;
+}
+
+.info-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 2rem;
+    max-width: var(--content-width);
+    margin: 0 auto;
+}
+
+.info-card {
+    background: var(--background-primary);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 4px 6px var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px var(--card-shadow);
+}
+
+.card-frame {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-header {
+    padding: 1.5rem;
+    background: var(--background-secondary);
+    color: var(--light-text);
+}
+
+.card-header h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.location {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.card-image {
+    position: relative;
+    padding-top: 60%;
+    overflow: hidden;
+}
+
+.card-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.card-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.stat {
+    background: rgba(0, 0, 0, 0.05);
+    padding: 0.75rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.8;
+    margin-bottom: 0.25rem;
+}
+
+.stat-value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.description {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--text-color);
+}
 /* Section Styles */
 .destinations, .activities, .contact {
     padding: var(--section-padding);
@@ -581,6 +695,7 @@ body.dark-theme .error-message {
     font-size: 1rem;
     margin: 0;
 }
+
 
 /* Dark theme adjustments for footer */
 body.dark-theme .site-footer {
@@ -884,112 +999,6 @@ input.error, textarea.error {
     border-color: #dc3545;
 }
 
-/* Destination Info Cards */
-.destination-info {
-    padding: 4rem 0;
-    background: var(--background-color);
-    min-height: 100vh;
-}
-
-.info-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    padding: 2rem;
-    max-width: var(--content-width);
-    margin: 0 auto;
-}
-
-.info-card {
-    background: var(--background-primary);
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    box-shadow: 0 4px 6px var(--card-shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.info-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px var(--card-shadow);
-}
-
-.card-frame {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.card-header {
-    padding: 1.5rem;
-    background: var(--background-secondary);
-    color: var(--light-text);
-}
-
-.card-header h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.location {
-    font-size: 1rem;
-    opacity: 0.9;
-}
-
-.card-image {
-    position: relative;
-    padding-top: 60%;
-    overflow: hidden;
-}
-
-.card-image img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.card-content {
-    padding: 1.5rem;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.card-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-bottom: 1rem;
-}
-
-.stat {
-    background: rgba(0, 0, 0, 0.05);
-    padding: 0.75rem;
-    border-radius: var(--border-radius);
-    text-align: center;
-}
-
-.stat-label {
-    font-size: 0.9rem;
-    color: var(--text-color);
-    opacity: 0.8;
-    margin-bottom: 0.25rem;
-}
-
-.stat-value {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--text-color);
-}
-
-.description {
-    font-size: 1rem;
-    line-height: 1.5;
-    color: var(--text-color);
-}
 
 /* Media Queries for Info Cards */
 @media (max-width: 1024px) {
@@ -1265,14 +1274,4 @@ body.dark-theme .contact {
     height: 500px;
     object-fit: cover;
     background-color: var(--background-primary);
-}
-
-/* Specific positioning for beach relaxation image */
-.activities-carousel .carousel-slide img[alt="Beach Relaxation"] {
-    object-position: center 70%;
-}
-
-/* Specific positioning for El Nido Palawan image */
-.carousel-slide img[alt="El Nido"] {
-    object-position: center 70%;
 }
